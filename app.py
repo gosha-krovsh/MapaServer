@@ -20,8 +20,9 @@ class Receive():
             except Exception as e:
                 client.sendmsg(e.__str__)
             else:
-                client.sendfile(result)
-                print(f"{result.decode('utf-8')}")
+                if(result != None):
+                    client.sendfile(result)
+                # print(f"{result.decode('utf-8')}")
 
 if  __name__ == '__main__':
     recv = Receive(host='localhost', port=8888)
